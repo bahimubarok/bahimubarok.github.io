@@ -11,7 +11,7 @@
     <!-- My CSS -->
     <link rel="stylesheet" href="style.css" />
 
-    <title>Pelayanan Publik | Wonosobo</title>
+    <title>Pelayanan Publik || Wonosobo</title>
   </head>
   <body id="Beranda">
     <!-- Navbar -->
@@ -139,21 +139,20 @@
                 <strong>Data telah tercatat!</strong> Persan akan mendapat respon maksimal 2 x 24 jam
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
               </div>
-            <form name="submit-form-to-google-sheets">
+            <form name="yanlik-pesan-masuk">
               <div class="mb-3">
                 <label for="name" class="form-label">Nama Lengkap</label>
-                <input type="text" class="form-control" id="name" aria-describedby="name" name="Nama Lengkap"/>
+                <input type="text" class="form-control" id="name" aria-describedby="name" name="nama"/>
               </div>
               <div class="mb-3">
                 <label for="email" class="form-label">Email</label>
-                <input type="email" class="form-control" id="email" aria-describedby="email" name="Email"/>
+                <input type="email" class="form-control" id="email" aria-describedby="email" name="email"/>
               </div>
               <div class="mb-3">
                 <label for="pesan" class="form-label">Pesan</label>
-                <textarea class="form-control" id="pesan" rows="3" name="Pesan"></textarea>
+                <textarea class="form-control" id="pesan" rows="3" name="pesan"></textarea>
               </div>
               <button type="submit" class="btn btn-primary btn-kirim">Kirim</button>
-
               <button class="btn btn-primary btn-loading d-none" type="button" disabled>
                 <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
                 Loading...
@@ -180,31 +179,15 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
     <script>
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbzzehZUBmnufqbIF__NeybKTzRAlKq65e_ALL2Mb5OWDmzWyyVQO-dBx4rbnP2IPrJBLw/exec'
-        const form = document.forms['Submit-Form-to-Google-Sheets']
-        const btnKirim = document.querySelector('.btn-kirim')
-        const btnLoading = document.querySelector('.btn-loading')
-        const myAlert = document.querySelector('.my-alert')
-      
-        form.addEventListener('submit', e => {
-          e.preventDefault()
-        // Ketika tombol submit diklik
-        // Tampilkan tombol loading, hilangkan tombol kirim
-        btn.Loading.classList.toggle('d-none')
-        btn.Kirim.classList.toggle('d-none')
-          fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-            .then(response => {
-                // Tampilkan tombol kirim, hilangkan tombol loading
-                btn.Loading.classList.toggle('d-none')
-                btn.Kirim.classList.toggle('d-none')
-                // Tampilkan alert
-                myAlert.classList.toggle('d-none')
-                // Reset formnya
-                form.reset()
-                console.log('Success!', response))
-            })
-            .catch(error => console.error('Error!', error.message))
-        })
-      </script>
+      const scriptURL = '<SCRIPT URL>'
+      const form = document.forms['yanlik-pesan-masuk']
+    
+      form.addEventListener('submit', e => {
+        e.preventDefault()
+        fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+          .then(response => console.log('Success!', response))
+          .catch(error => console.error('Error!', error.message))
+      })
+    </script>
   </body>
 </html>
